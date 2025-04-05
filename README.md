@@ -12,8 +12,13 @@
 
 
 `При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
+![Screen_1_1](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex1_1.png)
+![Screen_1_2](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex1_2.png)
+![Screen_1_3](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex1_3.png)
+![Screen_1_4](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex1_4.png)
+`
 
+Настройки раннера из файла config.toml:
 ```
 concurrent = 1
 check_interval = 0
