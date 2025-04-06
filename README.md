@@ -13,8 +13,6 @@
 
 ![Screen_1_1](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex1_1.png)
 ![Screen_1_2](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex1_2.png)
-![Screen_1_3](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex1_3.png)
-![Screen_1_4](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex1_4.png)
 
 Настройки раннера из файла config.toml:
 ```
@@ -26,11 +24,11 @@ shutdown_timeout = 0
   session_timeout = 1800
 
 [[runners]]
-  name = "neto-runner"
-  url = "http://localhost/"
-  id = 1
-  token = "t3_UhumJ4yHmgozkzsf-eWS"
-  token_obtained_at = 2025-04-05T21:09:52Z
+  name = "runner-v2"
+  url = "http://gitlab.local/"
+  id = 2
+  token = "t3_QGxCPWUdFpyQzxkoknPC"
+  token_obtained_at = 2025-04-05T23:16:32Z
   token_expires_at = 0001-01-01T00:00:00Z
   executor = "docker"
   [runners.cache]
@@ -40,14 +38,16 @@ shutdown_timeout = 0
     [runners.cache.azure]
   [runners.docker]
     tls_verify = false
-    image = "golang 1.17"
+    image = "ruby:2.7"
     privileged = false
     disable_entrypoint_overwrite = false
     oom_kill_disable = false
     disable_cache = false
-    volumes = ["/cache"]
+    volumes = ["/cache", "/var/run/docker.sock:/var/run/docker.sock"]
     shm_size = 0
     network_mtu = 0
+    extra_hosts = ["gitlab.local:10.0.2.15"]
+
 ```
 
 ---
@@ -66,17 +66,28 @@ shutdown_timeout = 0
     файл gitlab-ci.yml для своего проекта или вставьте код в соответствующее поле в шаблоне;
     скриншоты с успешно собранными сборками.
 
+файл gitlab-ci.yml:
+```
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  image: golang:1.17
+  script:
+    - go test .
+
+build:
+  stage: build
+  image: docker:latest
+  script:
+    - docker build .
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
-```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 2](ссылка на скриншот 2)`
+![Screen_2_1](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex2_1.png)
+![Screen_2_2](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex2_2.png)
 
 
 ---
