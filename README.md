@@ -83,11 +83,8 @@ build:
   image: docker:latest
   script:
     - docker build .
-
 ```
 
 ![Screen_2_1](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex2_1.png)
-![Screen_2_2](https://github.com/MrVanG0gh/Netology-8.3-GitLab-hw/blob/main/images/Screenshot_ex2_2.png)
-
 
 ---
